@@ -1,12 +1,14 @@
 
 library(dplyr)
 
+# Gets the csv file
 measurements <- read.csv("C:/Users/laava/OneDrive/Documents/Queen's University/Fourth Year/BIOL 432/BIOL432-Assignment-1/measurements.csv") #opens the file
 
+# Adds a column for volume
 measurements <- measurements %>%
-  mutate(Limb_volume = pi * Limb_width^2 * Limb_length) # adds a column for volume
+  mutate(Limb_volume = pi * Limb_width^2 * Limb_length)
 
-
-write.csv(data1, "measurements.csv", row.names = F) #creates the csv file
-write.csv(data1, "C:/Users/laava/OneDrive/Documents/Queen's University/Fourth Year/BIOL 432/BIOL432-Assignment-1/measurements.csv", row.names = F) #sends the csv file to the specified location
+#Updates the csv file in the computer
+write.csv(measurements, "measurements.csv", row.names = F)
+write.csv(measurements, "C:/Users/laava/OneDrive/Documents/Queen's University/Fourth Year/BIOL 432/BIOL432-Assignment-1/measurements.csv", row.names = F)
 
