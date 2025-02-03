@@ -1,0 +1,34 @@
+---
+title: "Regex.Rmd"
+author: "Laavanya Joshi"
+date: "2025-02-03"
+output: html_document
+---
+
+
+```{r}
+library(dplyr)
+
+MData <- read.csv("C:/Users/laava/OneDrive/Documents/Queen's University/Fourth Year/BIOL 432/BIOL432-Assignment-1/measurements.csv")
+
+```
+
+```{r}
+MData <- MData %>% 
+  mutate(Sp = gsub("^(\\w)\\w*\\s", "\\1.", Species))
+```
+
+
+```{r}
+MData2 <- MData %>% 
+  select(Sp, Limb_width, Limb_length, Limb_volume)
+```
+
+```{r}
+write.csv(MData2, "MeasShort.csv", row.names = F)
+write.csv(MData2, "C:/Users/laava/OneDrive/Documents/Queen's University/Fourth Year/BIOL 432/BIOL432-Assignment-1/MeasShort.csv", row.names = F)
+```
+
+
+
+
